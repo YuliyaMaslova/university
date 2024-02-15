@@ -40,10 +40,6 @@ public class GroupService {
         groupRepository.deleteById(id);
     }
 
-    public Page<Object[]> getFacultyGroupCount(int page, int size) {
-        Pageable pageable = PageRequest.of(page, size);
-        return groupRepository.findFacultyGroupCount(pageable);
-    }
 
 
 

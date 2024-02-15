@@ -46,9 +46,5 @@ public class StudentController {
 
     }
 
-    @GetMapping("/student-count")
-    public Page<Object[]> getFacultyStudentCount(@RequestParam(defaultValue = "0") int page,
-                                                 @RequestParam(defaultValue = "10") int size) {
-        return studentService.getFacultyStudentCount(page, size);
-    }
+
 }

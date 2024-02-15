@@ -35,8 +35,5 @@ public class StudentService {
         studentRepository.deleteById(id);
     }
 
-    public Page<Object[]> getFacultyStudentCount(int page, int size) {
-        Pageable pageable = PageRequest.of(page, size);
-        return studentRepository.findFacultyStudentCount(pageable);
-    }
+
 }

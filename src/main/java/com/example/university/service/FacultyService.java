@@ -1,6 +1,8 @@
 package com.example.university.service;
 
 import com.example.university.entity.Faculty;
+import com.example.university.model.FacultyGroupCountDTO;
+import com.example.university.model.FacultyStudentCountDTO;
 import com.example.university.repository.FacultyRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -34,6 +36,18 @@ public class FacultyService {
     public void deleteFaculty(int id) {
         facultyRepository.deleteById(id);
     }
+
+    public Page<FacultyGroupCountDTO> getFacultyGroupCount(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return facultyRepository.findFacultyGroupCount(pageable);
+    }
+
+    public Page<FacultyStudentCountDTO> getFacultyStudentCount(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return facultyRepository.findFacultyStudentCount(pageable);
+    }
+
+
 
 
 
