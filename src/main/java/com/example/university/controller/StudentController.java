@@ -2,6 +2,7 @@ package com.example.university.controller;
 
 import com.example.university.entity.Group;
 import com.example.university.entity.Student;
+import com.example.university.model.StudentDTO;
 import com.example.university.service.StudentService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -44,6 +45,12 @@ public class StudentController {
         studentService.deleteStudent(id);
         return "Student this ID = " + id + " was deleted";
 
+    }
+
+    @GetMapping("students/multiple-groups")
+    public List<StudentDTO> getStudentsInMultipleGroups() {
+
+        return studentService.getStudentsInMultipleGroups();
     }
 
 

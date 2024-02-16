@@ -1,6 +1,7 @@
 package com.example.university.service;
 
 import com.example.university.entity.Student;
+import com.example.university.model.StudentDTO;
 import com.example.university.repository.StudentRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -33,6 +34,10 @@ public class StudentService {
 
     public void deleteStudent(int id) {
         studentRepository.deleteById(id);
+    }
+
+    public List<StudentDTO> getStudentsInMultipleGroups() {
+        return studentRepository.findStudentsInMultipleGroups();
     }
 
 
