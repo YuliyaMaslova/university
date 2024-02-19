@@ -53,5 +53,10 @@ public class StudentController {
         return studentService.getStudentsInMultipleGroups();
     }
 
+    @GetMapping("students/more-groups")
+    public List<StudentDTO> getStudentsInMoreGroups() {
+        return studentService.getStudentsInMoreGroups();
+    }
+
 
 }

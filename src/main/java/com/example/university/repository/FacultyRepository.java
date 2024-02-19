@@ -10,13 +10,13 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface FacultyRepository extends JpaRepository<Faculty, Integer> {
 
-    @Query("SELECT f.id as faculty_id, f.name as faculty_name, COUNT(g.id) as group_count " +
+    @Query("SELECT new com.example.university.model.FacultyGroupCountDTO(f.id, f.name, COUNT(g.id)) " +
             "FROM Faculty f " +
             "LEFT JOIN f.groups g " +
             "GROUP BY f.id, f.name")
     Page<FacultyGroupCountDTO> findFacultyGroupCount(Pageable pageable);
 
-    @Query("SELECT f.id as faculty_id, f.name as faculty_name, COUNT(s.id) as student_count " +
+    @Query("SELECT new com.example.university.model.FacultyStudentCountDTO(f.id, f.name, COUNT(s.id)) " +
             "FROM Faculty f " +
             "LEFT JOIN f.groups g " +
             "LEFT JOIN g.students s " +

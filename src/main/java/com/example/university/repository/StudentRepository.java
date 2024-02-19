@@ -23,4 +23,8 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
     List<StudentDTO> findStudentsInMultipleGroups();
 
 
+    @Query("select s FROM Student s WHERE size(s.groups) > 1")
+    List<Student> findStudentByMoreGroups();
+
+
 }

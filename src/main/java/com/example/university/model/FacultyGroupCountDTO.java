@@ -1,11 +1,13 @@
 package com.example.university.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class FacultyGroupCountDTO {
-    private int facultyId;
+    private Integer facultyId;
     private String facultyName;
-    private int groupCount;
+    private Long groupCount;
 
 }

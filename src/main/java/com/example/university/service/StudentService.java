@@ -40,5 +40,11 @@ public class StudentService {
         return studentRepository.findStudentsInMultipleGroups();
     }
 
+    public List<StudentDTO> getStudentsInMoreGroups() {
+        return studentRepository.findStudentByMoreGroups().stream()
+                .map(s -> new StudentDTO(s.getId(), s.getName()))
+                .toList();
+    }
+
 
 }
